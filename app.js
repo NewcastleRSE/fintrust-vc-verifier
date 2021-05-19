@@ -24,9 +24,9 @@ var { CryptoBuilder,
 /////////// Verifier's client details
 const client = {
   client_name: 'Newcastle Research Bank',
-  logo_uri: 'https://didcustomerplayground.blob.core.windows.net/public/VerifiedCredentialExpert_icon.png',
+  logo_uri: 'https://fintrust.blob.core.windows.net/public/NewcastleResearchBankLogo.png',
   tos_uri: 'https://www.microsoft.com/servicesagreement',
-  client_purpose: 'To check if you know how to use verifiable credentials.'
+  client_purpose: 'To check if you have additional service requirements.'
 }
 
 ////////// Verifier's DID configuration values
