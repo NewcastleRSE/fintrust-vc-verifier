@@ -112,7 +112,7 @@ app.get('/presentation-request', async (req, res) => {
     client_purpose: client.client_purpose,
     presentationDefinition: {
       input_descriptors: [{
-          id:"expert",
+          id:"fairness",
           schema: {
               uri: [credentialType],
           },
@@ -155,7 +155,7 @@ app.get('/presentation-request.jwt', async (req, res) => {
 // Once the user approves the presentation request,
 // Authenticator will present the credential back to this server
 // at this URL. We can verify the credential and extract its contents
-// to verify the user is a Verified Credential Expert.
+// to verify the user.
 var parser = bodyParser.urlencoded({ extended: false });
 app.post('/presentation-response', parser, async (req, res) => {
 
@@ -164,7 +164,7 @@ app.post('/presentation-response', parser, async (req, res) => {
   const clientId = `https://${req.hostname}/presentation-response`
 
   // Validate the credential presentation and extract the credential's attributes.
-  // If this check succeeds, the user is a Verified Credential Expert.
+  // If this check succeeds, the user is verified and we can access the credential data.
   // Log a message to the console indicating successful verification of the credential.
 
   const validator = new ValidatorBuilder(crypto)
@@ -181,7 +181,7 @@ app.post('/presentation-response', parser, async (req, res) => {
   }
 
   var verifiedCredential = validationResponse.validationResult.verifiableCredentials[credentialType].decodedToken;
-  console.log(`${verifiedCredential.vc.credentialSubject.firstName} ${verifiedCredential.vc.credentialSubject.lastName} is a Verified Credential Expert!`);
+  console.log(`${verifiedCredential.vc.credentialSubject.firstName} ${verifiedCredential.vc.credentialSubject.lastName} has been verified`);
 
   // Store the successful presentation in session storage
   sessionStore.get(req.body.state, (error, session) => {
@@ -195,8 +195,8 @@ app.post('/presentation-response', parser, async (req, res) => {
 
 
 // Checks to see if the server received a successful presentation
-// of a Verified Credential Expert card. Updates the browser UI with
-// a successful message if the user is a Verified Credential Expert.
+// of the requested card. Updates the browser UI with
+// a successful message if the user is verified.
 app.get('/presentation-response', async (req, res) => {
 
   // If a credential has been received, display the contents in the browser
@@ -204,7 +204,7 @@ app.get('/presentation-response', async (req, res) => {
 
     presentedCredential = req.session.verifiedCredential;
     req.session.verifiedCredential = null;
-    return res.send(`Congratulations, ${presentedCredential.vc.credentialSubject.firstName} ${presentedCredential.vc.credentialSubject.lastName} is a Verified Credential Expert!`)  
+    return res.send(`The card presented by ${presentedCredential.vc.credentialSubject.firstName} ${presentedCredential.vc.credentialSubject.lastName} has been verified.`)  
   }
 
   // If no credential has been received, just display an empty message
