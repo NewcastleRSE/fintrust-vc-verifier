@@ -20,6 +20,10 @@ Follow these steps to run the app using the pre-configured Verified Credential '
 2. Run `npm install` to install all dependencies for the verifier website.
 3. Proceed with each step below to configure and run the website.
 
+### Installing Microsoft Authenticator.
+
+To run this sample, you'll need Microsoft Authenticator installed on an android device. Please follow [the instructions on our documentation](https://didproject.azurewebsites.net/docs/authenticator.html) to install Microsoft Authenticator.
+
 ### Issue a verifiable credential.
 
 Before you can use the verifier sample, you'll first need to issue a verifiable credential to Authenticator. If you haven't done so already, head on over to the  [fintrust-vc-issuer](https://github.com/NewcastleRSE/fintrust-vc-issuer) app first, and then return to this verifier sample.
