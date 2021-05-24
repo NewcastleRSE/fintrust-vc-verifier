@@ -1,24 +1,20 @@
+# Fintrust Verifiable Credentials Verifier Website
 
-
-# Verifiable Credentials Verifier Website
-
-This folder contains a sample website written in NodeJS that verifies a verifiable credential. All code for the website is contained in `app.js`. Essentially, this website does three things:
+This repository contains a sample website written in NodeJS that verifies a verifiable credential. All code for the website is contained in `app.js`. Essentially, this website does three things:
 
 1. It generates a QR code and displays it in a browser.
 2. It generates a credential presentation request, which is sent to Microsoft Authenticator after the QR code is scanned.
 3. It receives the requested credential from Authenticator and validates it.
 
-See our [documentation](https://aka.ms/didfordevs) for a more detailed explanation of the credential presentation and verification process.
+See the Microsoft Azure [documentation](https://aka.ms/didfordevs) for a more detailed explanation of the credential presentation and verification process.
 
-There are two ways to run this code sample. 
+## Using Verifiable Credentials to identify vulnerable customers in finance
 
-- Run the code as-is. The sample is set up to request a Credential Ninja Card. 
-- Change the code to request a different verifiable credential.
+This app is part of the implementation of the [Software Design Specification (SDS) Document](https://docs.google.com/document/d/1j2QFLKuDnUsdsmZphjdF2znI3LH5KEEPMwucwEcefUw/edit?usp=sharing) for the Trustworthy Digital Infrastructure for Identity Systems project, led by the Turing Institute and funded through a grant from the Bill & Melinda Gates Foundation. 
 
+## Running the app 
 
-## Running the sample 
-
-Follow these steps to run the sample using a pre-configured Verified Credential Ninja card on your local machine.
+Follow these steps to run the app using the pre-configured Verified Credential 'Fairness for All' card on your local machine.
 
 1. Clone this repository and `cd` to this `verifier` directory.
 2. Run `npm install` to install all dependencies for the verifier website.
@@ -26,17 +22,7 @@ Follow these steps to run the sample using a pre-configured Verified Credential 
 
 ### Issue a verifiable credential.
 
-Before you can use the verifier sample, you'll first need to issue a verifiable credential to Authenticator. If you haven't done so already, head on over to the  `../issuer` sample first, and then return to this verifier sample.
-
-### Generate a DID for your verifier
-
-Before running the website, you need to generate a decentralized identifier (DID) that your website will use when it communicates with users. Each DID requires a set of cryptographic keys, whose private key can be stored in Azure Key Vault. To run this sample you can use a key vault we've set up for you. Run the following command to generate a new DID for your verifier and create keys in our key vault:
-
-```
-node ./generate.js
-```
-
-You can also use your own Azure Key Vault by following the instructions at the bottom of this README.
+Before you can use the verifier sample, you'll first need to issue a verifiable credential to Authenticator. If you haven't done so already, head on over to the  [fintrust-vc-issuer](https://github.com/NewcastleRSE/fintrust-vc-issuer) app first, and then return to this verifier sample.
 
 ### Connect Authenticator to your local Node server
 
@@ -65,7 +51,7 @@ Finally, you're ready to run the website on your local machine:
 node ./app.js
 ```
 
-Once the site is up and running, navigate to the site in a browser using the secure ngrok URL, like `https://ac808a8fbe54.ngrok.io`.
+Once the site is up and running, navigate to the site in a browser using the secure ngrok URL.
 
 ### Using the website
 
@@ -75,14 +61,16 @@ To request and validate a verifiable credential, run the website and navigate to
 2. In Authenticator, open the QR scanner.
 3. Approve the request in Authenticator.    
 
-## Modifying the code to use your issuer and verifier
+## Modifying the code to use a different issuer and/or verifier
 
-If you've created your own issuer following our [documentation](https://aka.ms/didfordevs), you can edit the code to use your issuer and verifier.
+To switch the issuer (i.e. if you've created a new issuer service or want to verify a new credential type):
 
 1. In `app.js`, update the `credentialType` value for your verifiable credential.
 2. In `app.js`, update the `issuerDid` value to the expected DID of the issuer of the verifiable credential you expect.
 3. In `app.js`, optionally update the `client` values to reflect your verifier website.
 4. In `didconfig.json`, update all values to use your Azure Key Vault.
-5. Run `node ./generate.js` to generate a new DID for your website and create keys in your Key Vault. 
 
-More instructions on using the VC SDK to request and verify verifiable credentials can be found in our [documentation](https://aka.ms/didfordevs).
+## Image credit links
+
+* [Handshake Icon](https://icon-icons.com/icon/handshake/78379)
+* [Bank Icon](https://icon-icons.com/icon/bank/78392)
