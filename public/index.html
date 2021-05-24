@@ -21,13 +21,14 @@
                         <i class="fas fa-user-check green icon-text-large margin-bottom-25"></i>
                         <div id="message"></div>
                     </div>
-                    <button type="button" id="sign-in" id="sign-in" class="button">VERIFY CREDENTIAL</button>
-                    <div id="qrcode" style="display:none;text-align:center;">
+                    <button style="margin-bottom: 20px;" type="button" id="sign-in" class="button light-purple-fill">VERIFY CREDENTIAL</button>
+                    <div id="qrText" style="display:none;">
                         <p class="small-text">
                             <img src="authenticator-icon.png" alt="Authenticator icon" class="icon-small"><br>
                             Scan with Microsoft Authenticator
-                        </p>                   
+                        </p>
                     </div>
+                    <div id="qrcode" style="text-align: center"></div>
                     <script src="qrcode.min.js"></script>
                     <script>
                         var signIn = document.getElementById('sign-in');
@@ -49,7 +50,7 @@
                                             console.log(`Not Android. Generating QR code encoded with ${message}`);
                                             qrcode.makeCode(message);
                                             document.getElementById('sign-in').style.display = "none";
-                                            document.getElementById('qrcode').style.display = "block";
+                                            document.getElementById('qrText').style.display = "block";
                                         }
                                     }).catch(error => {
                                         console.log(error.message);
