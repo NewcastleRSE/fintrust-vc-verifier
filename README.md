@@ -80,3 +80,41 @@ To switch the issuer (i.e. if you've created a new issuer service or want to ver
 
 * [Handshake Icon](https://icon-icons.com/icon/handshake/78379)
 * [Bank Icon](https://icon-icons.com/icon/bank/78392)
+
+
+## Project Team
+Dave Horsfall, Newcastle University ([dave.horsfall@newcastle.ac.uk](mailto:dave.horsfall@newcastle.ac.uk)) - Developer  
+Dr Samantha Finnigan, Newcastle University ([samantha.finnigan@newcastle.ac.uk](samantha.finnigan@newcastle.ac.uk)) – Maintainer  
+Dr Kovila Coopamootoo, Newcastle University ([kovila.coopamootoo@newcastle.ac.uk](kovila.coopamootoo@newcastle.ac.uk)) - Project Co-Investigator  
+Prof. Aad van Moorsel, Newcastle University ([aad.vanmoorsel@newcastle.ac.uk](aad.vanmoorsel@newcastle.ac.uk)) – Project Principal Investigator  
+
+### RSE Contact
+Dr Samantha Finnigan  
+RSE Team  
+Newcastle University  
+([samantha.finnigan@newcastle.ac.uk](samantha.finnigan@newcastle.ac.uk))
+
+
+## License
+Released under MIT License  
+Copyright © 2022 Newcastle University  
+
+
+## Citation
+
+Please cite the associated papers for this work if you use this code:
+
+```
+@misc{spiliotopoulos2021identifying,
+      title={Identifying and Supporting Financially Vulnerable Consumers in a Privacy-Preserving Manner: A Use Case Using Decentralised Identifiers and Verifiable Credentials}, 
+      author={Tasos Spiliotopoulos and Dave Horsfall and Magdalene Ng and Kovila Coopamootoo and Aad van Moorsel and Karen Elliott},
+      year={2021},
+      eprint={2106.06053},
+      archivePrefix={arXiv},
+      primaryClass={cs.CY}
+}
+```
+
+## Acknowledgements
+
+This app is part of the implementation of the [Software Design Specification (SDS) Document](https://docs.google.com/document/d/1j2QFLKuDnUsdsmZphjdF2znI3LH5KEEPMwucwEcefUw/edit?usp=sharing) for the Trustworthy Digital Infrastructure for Identity Systems project, led by the Turing Institute and funded through a grant from the Bill & Melinda Gates Foundation [INV-001309](https://www.gatesfoundation.org/about/committed-grants/2019/12/INV001309). 
