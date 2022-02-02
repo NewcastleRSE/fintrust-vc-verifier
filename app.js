@@ -42,7 +42,7 @@ const signingKeyReference = new KeyReference(config.kvSigningKeyId, 'key', confi
 /////////// Set the expected values for the Verifiable Credential
 const credential = 'https://beta.did.msidentity.com/v1.0/aa8c2bc8-e39f-4269-8f4b-17a44c462adb/verifiableCredential/contracts/FairnessForAll';
 const credentialType = 'FairnessForAll';
-const issuerDid = ['***REMOVED***'];
+const issuerDid = [config.did];
 
 var crypto = new CryptoBuilder()
     .useSigningKeyReference(signingKeyReference)
